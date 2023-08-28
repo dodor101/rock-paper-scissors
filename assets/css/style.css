@@ -48,7 +48,7 @@ header {
 }
 
 .rock-image {
-  background-image: url('/assets/images/fist.png');
+  background-image: url("../images/fist.png");
 }
 .image {
   background-position: center;
@@ -69,11 +69,11 @@ header {
 }
 
 .paper-image {
-  background-image: url('/assets/images/paper-emojie.png');
+  background-image: url('../images/paper-emojie.png');
 }
 
 .scissors-image {
-  background-image: url('/assets/images/scissors.png');
+  background-image: url('../images/scissors.png');
 }
 
 /*  style score board */
