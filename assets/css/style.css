@@ -1,0 +1,134 @@
+/* declare root variables */
+:root {
+  --body-background-color: #f5bccd;
+  --text-color: #dea0d1;
+  --button-background-color: #dea3a0;
+  --header-background-color: #efb4fa;
+}
+
+/* body styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  padding: 0;
+  font-family: 'Playfair display', serif;
+  background-color: var(--body-background-color);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-weight: 700;
+}
+
+header {
+  padding: 2rem;
+  background-color: var(--header-background-color);
+  width: 100vw;
+  margin-bottom: 3rem;
+  display: flex;
+}
+
+/* style display-options */
+.display-options {
+  /* width: 100vw; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 4px;
+  border: none;
+  overflow-y: hidden;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 10rem;
+  padding: 1rem;
+}
+
+.rock-image {
+  background-image: url('/assets/images/fist.png');
+}
+.image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  cursor: pointer;
+  padding: 10rem;
+  flex: 0 1 200px;
+  height: 1px;
+  position: relative;
+  border-radius: 999px;
+  box-shadow: 1px 12px 12px gray;
+  color: #fff;
+  font-size: 300%;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+.paper-image {
+  background-image: url('/assets/images/paper-emojie.png');
+}
+
+.scissors-image {
+  background-image: url('/assets/images/scissors.png');
+}
+
+/*  style score board */
+.display-scores ul {
+  display: flex;
+  gap: 1rem;
+  font-size: 6rem;
+  word-break:keep-all;
+  list-style: none;
+  letter-spacing: 4px;
+  padding: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 70%;
+  margin: auto;
+}
+
+.display-scores ul li {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+}
+/* start game button styling */
+.start-game {
+  display: flex;
+  justify-content: center;
+  padding: 4rem;
+}
+
+.start-game button {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  background-color: #dea3a0;
+  box-shadow: #dea3a0 1px solid;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 2px 20px 20px gainsboro;
+  cursor: pointer;
+}
+ footer {
+  padding: 2rem;
+   background-color: var(--header-background-color);
+
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-top: auto;
+}
