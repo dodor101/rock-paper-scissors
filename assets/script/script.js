@@ -17,9 +17,9 @@ let score = {
 
 let result = JSON.parse(localStorage.getItem('score'));
 
-wins.textContent = result.wins;
-loses.textContent = result.loses;
-ties.textContent = result.ties;
+wins.textContent = result?.wins;
+loses.textContent = result?.loses;
+ties.textContent = result?.ties;
 
 function getScore() {
   localStorage.setItem('score', JSON.stringify(score));
@@ -57,45 +57,39 @@ let playGame = function () {
     let message = '';
 
     if (myChoice === 'rock' && computerChoice === 'scissors') {
-       score.wins++;
+      score.wins++;
       wins.textContent = score.wins;
       getScore();
-
       message = `You picked ${myChoice} and Computer Picked ${computerChoice}: You WIN!!!`;
     } else if (myChoice === 'scissors' && computerChoice === 'rock') {
       score.loses++;
       loses.textContent = score.loses;
       getScore();
-
       message = `You picked ${myChoice} and Computer Picked ${computerChoice}: You LOSE!`;
     } else if (myChoice === 'scissors' && computerChoice === 'paper') {
-       score.wins++;
+      score.wins++;
       wins.textContent = score.wins;
       getScore();
-
       message = `You picked ${myChoice} and Computer Picked ${computerChoice}: You WIN!!!`;
     } else if (myChoice === 'paper' && computerChoice === 'scissors') {
       score.loses++;
       loses.textContent = score.loses;
       getScore();
-
       message = `You picked ${myChoice} and Computer Picked ${computerChoice}: You LOSE!`;
     } else if (myChoice === 'paper' && computerChoice === 'rock') {
       score.wins++;
       wins.textContent = score.wins;
-      message = `You picked ${myChoice} and Computer Picked ${computerChoice}: You Win!!!`;
       getScore();
+      message = `You picked ${myChoice} and Computer Picked ${computerChoice}: You Win!!!`;
     } else if (myChoice === 'rock' && computerChoice === 'paper') {
       score.loses++;
       loses.textContent = score.loses;
       getScore();
-
       message = `You picked ${myChoice} and Computer Picked ${computerChoice}: You Lose!`;
     } else if (myChoice === computerChoice) {
       score.ties++;
       ties.textContent = score.ties;
       getScore();
-
       message = `You picked ${myChoice} and Computer Picked ${computerChoice}: It's a Tie!!`;
     } else {
       return message;
