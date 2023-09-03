@@ -15,6 +15,16 @@ let score = {
   ties: 0,
 };
 
+let result = JSON.parse(localStorage.getItem('score'));
+
+wins.textContent = result.wins;
+loses.textContent = result.loses;
+ties.textContent = result.ties;
+
+function getScore() {
+  localStorage.setItem('score', JSON.stringify(score));
+}
+
 // create players options
 let options = ['R', 'P', 'P'];
 
@@ -42,40 +52,61 @@ function getComputedChoice() {
 let playGame = function () {
   userChoiceEl.addEventListener('click', (e) => {
     let myChoice = e.target.dataset.choice;
+
     let computerChoice = getComputedChoice();
     let message = '';
+
     if (myChoice === 'rock' && computerChoice === 'scissors') {
-      score.wins++;
+       score.wins++;
+      wins.textContent = score.wins;
+      getScore();
+
       message = `You picked ${myChoice} and Computer Picked ${computerChoice}: You WIN!!!`;
     } else if (myChoice === 'scissors' && computerChoice === 'rock') {
       score.loses++;
+      loses.textContent = score.loses;
+      getScore();
+
       message = `You picked ${myChoice} and Computer Picked ${computerChoice}: You LOSE!`;
     } else if (myChoice === 'scissors' && computerChoice === 'paper') {
-      score.wins++;
+       score.wins++;
+      wins.textContent = score.wins;
+      getScore();
+
       message = `You picked ${myChoice} and Computer Picked ${computerChoice}: You WIN!!!`;
     } else if (myChoice === 'paper' && computerChoice === 'scissors') {
       score.loses++;
+      loses.textContent = score.loses;
+      getScore();
+
       message = `You picked ${myChoice} and Computer Picked ${computerChoice}: You LOSE!`;
     } else if (myChoice === 'paper' && computerChoice === 'rock') {
       score.wins++;
+      wins.textContent = score.wins;
       message = `You picked ${myChoice} and Computer Picked ${computerChoice}: You Win!!!`;
+      getScore();
     } else if (myChoice === 'rock' && computerChoice === 'paper') {
       score.loses++;
+      loses.textContent = score.loses;
+      getScore();
+
       message = `You picked ${myChoice} and Computer Picked ${computerChoice}: You Lose!`;
     } else if (myChoice === computerChoice) {
       score.ties++;
-      message = `You picked ${myChoice} and Computer Picked ${computerChoice}: It's a Tie!! `;
+      ties.textContent = score.ties;
+      getScore();
+
+      message = `You picked ${myChoice} and Computer Picked ${computerChoice}: It's a Tie!!`;
     } else {
       return message;
     }
+
     // display score on the client
-    wins.textContent = score.wins;
-    loses.textContent = score.loses;
-    ties.textContent = score.ties;
     alert(message);
   });
 };
 
 playGameBtn.addEventListener('click', () => {
+  getScore();
   playGame();
 });
